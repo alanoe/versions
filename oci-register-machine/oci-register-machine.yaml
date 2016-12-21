@@ -3,7 +3,6 @@ Package:
  clone_url: 'https://github.com/projectatomic/oci-register-machine.git'
  commit_id: 'fcdbff00c6d5ac32c599d1dff96906bfe027638a'
  branch: 'master'
- expects_source: 'oci-register-machine'
  files:
   centos:
    '7.2':

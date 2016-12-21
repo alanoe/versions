@@ -3,7 +3,6 @@ Package:
  clone_url: 'https://github.com/lyonel/lshw.git'
  branch: 'master'
  commit_id: 'f9bdcc342d525f8504b81a9a344d58f57aa9b5dc'
- expects_source: 'lshw'
  files:
   centos:
    '7.2':

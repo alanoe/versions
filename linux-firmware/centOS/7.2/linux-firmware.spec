@@ -237,7 +237,7 @@ contained inside the provided LICENSE file. Please read it carefully.
 
 %prep
 # Setup Source0 and additional Source1
-%setup -q -c -n linux-firmware-%{checkout}
+%setup -q -c -n %{name}
 
 %build
 # Remove firmware shipped in separate packages already

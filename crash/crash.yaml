@@ -6,7 +6,6 @@ Package:
  version:
    file: '.rh_rpm_package'
    regex: '([\w.-]+)'
- expects_source: "crash"
  files:
   centos:
    '7.2':

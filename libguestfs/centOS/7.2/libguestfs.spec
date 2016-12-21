@@ -25,7 +25,7 @@ License:       LGPLv2+
 
 # Source and patches.
 URL:           http://libguestfs.org/
-Source0:       %{name}-%{version}.tar.gz
+Source0:       %{name}.tar.gz
 #Source0:       http://libguestfs.org/download/1.28-stable/%{name}-%{version}.tar.gz
 
 ExclusiveArch: x86_64 %{power64} aarch64
@@ -883,7 +883,7 @@ for %{name}.
 
 
 %prep
-%setup -qn %{name}-%{version}
+%setup -qn %{name}
 
 if [ "$(getenforce | tr '[A-Z]' '[a-z]')" != "disabled" ]; then
     # For sVirt to work, the local temporary directory we use in the

@@ -3,7 +3,6 @@ Package:
  clone_url: 'https://git.fedorahosted.org/git/hwdata.git'
  branch: 'master'
  commit_id: '625a1194eaf9b764985ebec3a5da78dc71299238'
- expects_source: "hwdata"
  files:
   centos:
    '7.2':
