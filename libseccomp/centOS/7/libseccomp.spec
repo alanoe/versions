@@ -7,7 +7,7 @@ ExclusiveArch: %{ix86} x86_64 %{arm} aarch64 mipsel mips64el ppc64 ppc64le s390 
 License: LGPLv2
 Group: System Environment/Libraries
 # original: https://github.com/seccomp/libseccomp/releases/download/v%{version}/%{name}-%{version}.tar.gz
-Source: %{name}-%{version}.tar.gz
+Source: %{name}.tar.gz
 URL: https://github.com/seccomp/libseccomp
 %ifnarch s390
 BuildRequires: valgrind automake autoconf libtool
@@ -45,7 +45,7 @@ application is allowed to execute, all of which are enforced by the Linux
 Kernel.
 
 %prep
-%setup -q
+%setup -q -n %{name}
 
 %build
 ./autogen.sh

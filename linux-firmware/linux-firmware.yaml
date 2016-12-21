@@ -5,7 +5,6 @@ Package:
       src: 'https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git'
       branch: 'master'
       commit_id: '70a3c2adcce7c51e4f26e929d666237904f6fd31'
-      archive: "linux-firmware"
  files:
   centos:
    '7':
