@@ -6,7 +6,8 @@ Release: 1%{?dist}%{?ibm_release}
 ExclusiveArch: %{ix86} x86_64 %{arm} aarch64 mipsel mips64el ppc64 ppc64le s390 s390x
 License: LGPLv2
 Group: System Environment/Libraries
-Source: https://github.com/seccomp/libseccomp/releases/download/v%{version}/%{name}-%{version}.tar.gz
+# original: https://github.com/seccomp/libseccomp/releases/download/v%{version}/%{name}-%{version}.tar.gz
+Source: %{name}-%{version}.tar.gz
 URL: https://github.com/seccomp/libseccomp
 %ifnarch s390
 BuildRequires: valgrind automake autoconf libtool
