@@ -6,7 +6,7 @@ License: CPL
 Group: System Environment/Base
 Vendor: IBM
 URL: http://sourceforge.net/projects/iprdd/
-Source0: iprutils.tar.gz
+Source0: %{name}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-root
 BuildRequires: automake
 BuildRequires: kernel-devel

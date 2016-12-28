@@ -888,7 +888,7 @@ package or when debugging this package.
 %endif
 
 %prep
-%setup -q -n gcc -a 1 -a 2
+%setup -q -n %{name} -a 1 -a 2
 %patch0 -p0 -b .hack~
 %patch1 -p0 -b .java-nomulti~
 %patch2 -p0 -b .ppc32-retaddr~

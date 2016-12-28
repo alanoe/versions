@@ -16,7 +16,7 @@ Summary:        OCI systemd hook for docker
 Group:          Applications/Text
 License:        GPLv3+
 URL:            https://%{import_path}
-Source0:        %{repo}.tar.gz
+Source0:        %{name}.tar.gz
 
 BuildRequires:  autoconf
 BuildRequires:  automake
@@ -29,7 +29,7 @@ BuildRequires:  go-md2man
 OCI systemd hooks enable running systemd in a OCI runc/docker container.
 
 %prep
-%setup -q -n %{repo}
+%setup -q -n %{name}
 
 %build
 aclocal
