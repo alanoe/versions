@@ -1,0 +1,13 @@
+Package:
+ name: 'util-linux'
+ clone_url: 'git://git.kernel.org/pub/scm/utils/util-linux/util-linux.git'
+ branch: 'stable/v2.23'
+ commit_id: '44baaedaffee029dca76796b933412d97a19dff6' 
+ version:
+   file: '.rh_rpm_package'
+   regex: '([\w.-]+)'
+ files:
+  centos:
+   '7.2':
+    spec: 'centOS/7.2/util-linux.spec'
+    build_files: 'centOS/7.2/SOURCES'
