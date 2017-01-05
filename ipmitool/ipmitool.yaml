@@ -1,0 +1,11 @@
+Package:
+ name: 'ipmitool'
+ clone_url: 'git://git.code.sf.net/p/ipmitool/source'
+ branch: 'master'
+ #commit_id: '33140248671946a76e6eb8069fcebffd98ef5dbe' # tag = IPMITOOL_1_8_15RC1
+ commit_id: '342f44b9f3f2a57ae347104e0973259352086f2b' # tag = IPMITOOL_1_8_15
+ files:
+  centos:
+   '7.2':
+    spec: 'centOS/7.2/ipmitool.spec'
+    build_files: 'centOS/7.2/SOURCES'

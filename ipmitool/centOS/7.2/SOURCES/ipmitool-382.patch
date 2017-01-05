@@ -1,0 +1,27 @@
+commit ff80a188f3dc1eef105b2915361b1fce30ee4e4c
+Author: Zdenek Styblik <zdenek.styblik@showmax.com>
+Date:   Mon Jul 27 06:37:37 2015 +0200
+
+    ID:382 - Fix memcpy() params in HpmFwupgActionUploadFirmware()
+    
+    The 'bufLength' variable holds a constant chunk size. If the actual
+    data length is less than the 'bufLength', then it crashes IPMITool. The
+    code was already there to calculate the remaining data length, but was
+    not used in memcpy(). We changed it to use the 'count' variable which
+    holds the proper available data length.
+    
+    Commit for: Viswanathan Swaminathan
+
+diff --git a/lib/ipmi_hpmfwupg.c b/lib/ipmi_hpmfwupg.c
+index 2a4925c..8ada69b 100644
+--- a/lib/ipmi_hpmfwupg.c
++++ b/lib/ipmi_hpmfwupg.c
+@@ -1199,7 +1199,7 @@ HpmFwupgActionUploadFirmware(struct HpmfwupgComponentBitMask components,
+ 			} else {
+ 				count = (unsigned short)((pDataTemp+lengthOfBlock) - pData);
+ 			}
+-			memcpy(&uploadCmd.req->data, pData, bufLength);
++			memcpy(&uploadCmd.req->data, pData, count);
+ 			imageOffset = 0x00;
+ 			blockLength = 0x00;
+ 			numTxPkts++;
