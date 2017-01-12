@@ -1,7 +1,16 @@
 Package:
  name: 'gcc'
- download_source: 'svn export svn://gcc.gnu.org/svn/gcc/branches/redhat/gcc-4_8-branch@240558 gcc-4.8.5-20150702 && tar cf - gcc-4.8.5-20150702 | bzip2 -9 > gcc-4.8.5-20150702.tar.bz2'
- expects_source: 'gcc-4.8.5-20150702.tar.bz2'
+ sources:
+  - git:
+     src: 'https://github.com/gcc-mirror/gcc.git'
+     #commit_id: '8c40be9f24a703a60c851b35af78c5ff78579485'
+     #branch: 'redhat'
+     commit_id: 'a2195a266a551a96f62e657b5b3ec453d7e80acb'
+     branch: 'master'
+     #ref_to_fetch: 'refs/remotes/redhat'
+     #ref_to_fetch: 'a2195a266a551a96f62e657b5b3ec453d7e80acb'
+     #archive_src_dir: 'gcc-4_8-branch/'
+     shallow: false
  files:
   centos:
    '7':

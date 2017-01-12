@@ -89,9 +89,12 @@ License: GPLv3+ and GPLv3+ with exceptions and GPLv2+ with exceptions and LGPLv2
 Group: Development/Languages
 # The source for this package was pulled from upstream's vcs.  Use the
 # following commands to generate the tarball:
-# svn export svn://gcc.gnu.org/svn/gcc/branches/redhat/gcc-4_8-branch@%{SVNREV} gcc-%{version}-%{DATE}
-# tar cf - gcc-%{version}-%{DATE} | bzip2 -9 > gcc-%{version}-%{DATE}.tar.bz2
-Source0: gcc-%{version}-%{DATE}.tar.bz2
+# git clone https://github.com/gcc-mirror/gcc.git
+# cd gcc
+# git fetch origin refs/remotes/redhat:redhat
+# git checkout redhat
+# tar -zcf gcc.tar.gz redhat/gcc-4_8-branch/
+Source0: %{name}.tar.gz
 %global isl_version 0.11.1
 Source1: ftp://gcc.gnu.org/pub/gcc/infrastructure/isl-%{isl_version}.tar.bz2
 %global cloog_version 0.18.0
@@ -888,7 +891,8 @@ package or when debugging this package.
 %endif
 
 %prep
-%setup -q -n gcc-%{version}-%{DATE} -a 1 -a 2
+%setup -q -n %{name}
+#%setup -q -n gcc-%{version}-%{DATE} -a 1 -a 2
 %patch0 -p0 -b .hack~
 %patch1 -p0 -b .java-nomulti~
 %patch2 -p0 -b .ppc32-retaddr~
