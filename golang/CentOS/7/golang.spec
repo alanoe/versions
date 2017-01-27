@@ -28,7 +28,7 @@
   /usr/lib/rpm/brp-compress
 
 # Define GOROOT macros
-%global goroot /usr/lib/%{name}
+%global goroot %{_libdir}/%{name}
 %global gopath %{_datadir}/gocode
 %global golang_arches %{ix86} x86_64 ppc64le %{arm} aarch64 s390x
 %global golibdir %{_libdir}/golang
@@ -71,7 +71,7 @@
 %endif
 
 # Fedora GOROOT
-%global goroot          /usr/lib/%{name}
+%global goroot          {_libdir}/%{name}
 
 %ifarch x86_64
 %global gohostarch  amd64

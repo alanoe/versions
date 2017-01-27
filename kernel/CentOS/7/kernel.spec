@@ -99,7 +99,7 @@ Summary: The Linux kernel
 %if !%{with_debuginfo}
 %define _enable_debug_packages 0
 %endif
-%define debuginfodir /usr/lib/debug
+%define debuginfodir %{_libdir}/debug
 
 # if requested, only build base kernel
 %if %{with_baseonly}

@@ -20,7 +20,7 @@ Requires:   python-ipaddr
 Requires:   python-magic
 Requires:   python-netaddr
 Requires:   python-augeas
-Requires:	python2-crypto
+Requires:   python2-crypto
 
 
 %description
@@ -34,7 +34,7 @@ machines.
 %endif
 
 %prep
-%setup -n %{name}
+%setup -q -n %{name}
 
 
 %build

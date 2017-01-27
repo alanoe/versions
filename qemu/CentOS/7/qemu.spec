@@ -833,11 +833,11 @@ gcc %{SOURCE6} -O2 -g -o ksmctl
 
 %define _udevdir /lib/udev/rules.d
 
-install -D -p -m 0744 %{SOURCE4} $RPM_BUILD_ROOT/lib/systemd/system/ksm.service
+install -D -p -m 0744 %{SOURCE4} $RPM_BUILD_ROOT%{_libdir}/systemd/system/ksm.service
 install -D -p -m 0644 %{SOURCE5} $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/ksm
-install -D -p -m 0755 ksmctl $RPM_BUILD_ROOT/lib/systemd/ksmctl
+install -D -p -m 0755 ksmctl $RPM_BUILD_ROOT%{_libdir}/systemd/ksmctl
 
-install -D -p -m 0744 %{SOURCE7} $RPM_BUILD_ROOT/lib/systemd/system/ksmtuned.service
+install -D -p -m 0744 %{SOURCE7} $RPM_BUILD_ROOT%{_libdir}/systemd/system/ksmtuned.service
 install -D -p -m 0755 %{SOURCE8} $RPM_BUILD_ROOT%{_sbindir}/ksmtuned
 install -D -p -m 0644 %{SOURCE9} $RPM_BUILD_ROOT%{_sysconfdir}/ksmtuned.conf
 
@@ -1045,9 +1045,9 @@ rm -f $RPM_BUILD_ROOT%{_mandir}/man8/qemu-nbd.8*
 rm -f $RPM_BUILD_ROOT%{_sbindir}/ksmtuned
 rm -f $RPM_BUILD_ROOT%{_sysconfdir}/ksmtuned.conf
 rm -f $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/ksm
-rm -f $RPM_BUILD_ROOT/lib/systemd/ksmctl
-rm -f $RPM_BUILD_ROOT/lib/systemd/system/ksm.service
-rm -f $RPM_BUILD_ROOT/lib/systemd/system/ksmtuned.service
+rm -f $RPM_BUILD_ROOT%{_libdir}/systemd/ksmctl
+rm -f $RPM_BUILD_ROOT%{_libdir}/systemd/system/ksm.service
+rm -f $RPM_BUILD_ROOT%{_libdir}/systemd/system/ksmtuned.service
 
 rm -f $RPM_BUILD_ROOT%{_bindir}/qemu-ga
 rm -f $RPM_BUILD_ROOT%{_unitdir}/qemu-guest-agent.service
@@ -1196,10 +1196,10 @@ getent passwd qemu >/dev/null || \
 
 %if %{without separate_kvm}
 %files -n ksm
-/lib/systemd/system/ksm.service
-/lib/systemd/ksmctl
+%{_libdir}/systemd/system/ksm.service
+%{_libdir}/systemd/ksmctl
 %config(noreplace) %{_sysconfdir}/sysconfig/ksm
-/lib/systemd/system/ksmtuned.service
+%{_libdir}/systemd/system/ksmtuned.service
 %{_sbindir}/ksmtuned
 %config(noreplace) %{_sysconfdir}/ksmtuned.conf
 %endif

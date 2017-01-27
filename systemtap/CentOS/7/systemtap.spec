@@ -56,7 +56,7 @@
    %endif
 %endif
 
-%define dracutstap %{_prefix}/lib/dracut/modules.d/99stap
+%define dracutstap %{_libdir}/dracut/modules.d/99stap
 
 Name: systemtap
 Version: 3.0
@@ -326,7 +326,7 @@ Requires: crash
 Requires: systemtap-runtime-java = %{version}-%{release}
 %endif
 %ifarch x86_64
-Requires: /usr/lib/libc.so
+Requires: %{_libdir}/libc.so
 # ... and /usr/lib/libgcc_s.so.*
 # ... and /usr/lib/libstdc++.so.*
 %endif
@@ -424,7 +424,7 @@ cd ..
 
 # We have to prevent the standard dependency generation from identifying
 # our private elfutils libraries in our provides and requires.
-%global _use_internal_dependency_generator	0
+%global _use_internal_dependency_generator 0
 %global filter_eulibs() /bin/sh -c "%{1} | sed '/libelf/d;/libdw/d;/libebl/d'"
 %global __find_provides %{filter_eulibs /usr/lib/rpm/find-provides}
 %global __find_requires %{filter_eulibs /usr/lib/rpm/find-requires}

@@ -14,7 +14,7 @@ Requires(preun): systemd
 Requires:       servicelog, lsvpd >= 1.7.1
 # PRRN RTAS event notification handler depends on below librtas
 # and powerpc-utils versions.
-Requires:	librtas
+Requires:   librtas
 # License change
 Requires:	powerpc-utils >= 1.3.2
 

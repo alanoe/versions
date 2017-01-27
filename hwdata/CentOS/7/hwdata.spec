@@ -34,7 +34,7 @@ patch -b -B nx_crypto -p1 < blacklist-nx_crypto.patch
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make install DESTDIR=$RPM_BUILD_ROOT libdir=%{_prefix}/lib
+make install DESTDIR=$RPM_BUILD_ROOT libdir=%{_libdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -48,7 +48,7 @@ udevadm hwdb --update >/dev/null 2>&1 || :
 %files
 %doc LICENSE COPYING
 %dir %{_datadir}/%{name}
-%{_prefix}/lib/modprobe.d/dist-blacklist.conf
+%{_libdir}/modprobe.d/dist-blacklist.conf
 %{_datadir}/%{name}/*
 
 %changelog

@@ -20,7 +20,7 @@ Requires:   python-psutil >= 0.6.0
 Requires:   fontawesome-fonts
 Requires:   open-sans-fonts
 Requires:   logrotate
-Requires:	policycoreutils
+Requires:   policycoreutils
 Requires:	policycoreutils-python
 
 Requires(post): policycoreutils
@@ -67,7 +67,7 @@ Wok is Webserver Originated from Kimchi.
 
 
 %prep
-%setup -n %{name}
+%setup -q -n %{name}
 
 
 %build
@@ -90,7 +90,7 @@ install -Dm 0755 contrib/wokd-upstart.conf.fedora %{buildroot}/etc/init/wokd.con
 install -Dm 0755 contrib/wokd.sysvinit %{buildroot}%{_initrddir}/wokd
 %endif
 
-install -Dm 0640 src/firewalld.xml %{buildroot}%{_prefix}/lib/firewalld/services/wokd.xml
+install -Dm 0640 src/firewalld.xml %{buildroot}%{_libdir}/firewalld/services/wokd.xml
 
 # Install script to help open port in firewalld
 install -Dm 0744 src/wok-firewalld.sh %{buildroot}%{_datadir}/wok/utils/wok-firewalld.sh
@@ -163,7 +163,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_localstatedir}/log/wok/*
 %{_localstatedir}/log/wok/
 %{_unitdir}/wokd.service
-%{_prefix}/lib/firewalld/services/wokd.xml
+%{_libdir}/firewalld/services/wokd.xml
 %endif
 %if 0%{?rhel} == 6
 /etc/init/wokd.conf

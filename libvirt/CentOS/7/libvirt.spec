@@ -427,9 +427,9 @@ Requires: libvirt-daemon-driver-vbox = %{version}-%{release}
 Requires: libvirt-daemon-driver-nwfilter = %{version}-%{release}
         %endif
 
-	%if %{with_interface}
+%if %{with_interface}
 Requires: libvirt-daemon-driver-interface = %{version}-%{release}
-	%endif
+%endif
 Requires: libvirt-daemon-driver-secret = %{version}-%{release}
 Requires: libvirt-daemon-driver-storage = %{version}-%{release}
 Requires: libvirt-daemon-driver-network = %{version}-%{release}
@@ -1237,7 +1237,7 @@ Libvirt plugin for NSS for translating domain names into IP addresses.
 %endif
 
 %prep
-%setup -n %{name}
+%setup -q -n %{name}
 
 # Patches have to be stored in a temporary file because RPM has
 # a limit on the length of the result of any macro expansion;
@@ -1656,7 +1656,7 @@ mv $RPM_BUILD_ROOT%{_datadir}/systemtap/tapset/libvirt_qemu_probes.stp \
 %endif
 
 %if 0%{?rhel} == 5
-rm -f $RPM_BUILD_ROOT%{_prefix}/lib/sysctl.d/60-libvirtd.conf
+rm -f $RPM_BUILD_ROOT%{_libdir}/sysctl.d/60-libvirtd.conf
 %endif
 
 %clean
@@ -2010,7 +2010,7 @@ exit 0
 %config(noreplace) %{_sysconfdir}/libvirt/virtlogd.conf
 %config(noreplace) %{_sysconfdir}/libvirt/virtlockd.conf
     %if 0%{?fedora} || 0%{?rhel} >= 6
-%config(noreplace) %{_prefix}/lib/sysctl.d/60-libvirtd.conf
+%config(noreplace) %{_libdir}/sysctl.d/60-libvirtd.conf
     %endif
 
 %config(noreplace) %{_sysconfdir}/logrotate.d/libvirtd
